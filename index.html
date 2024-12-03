@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chileshe Besa | Portfolio</title>
+  <style>
+    /* General Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+      background-size: cover;
+      background-position: center;
+      color: #333;
+    }
+
+    /* Header Styling */
+    header {
+      background: coral;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8); /* Slight opacity for background */
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    section h2 {
+      color: #ffd700; /* Gold color for headings */
+    }
+
+    article {
+      margin-bottom: 20px;
+    }
+
+    /* Form Styling */
+    form label {
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form input[type="submit"] {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background: #555;
+    }
+
+    /* Back to Top Button Styling */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 10px;
+      background-color: #333;
+      color: white;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      display: none; /* Hidden by default */
+      z-index: 1000; /* Ensure it appears above other elements */
+    }
+
+    #back-to-top:hover {
+      background-color: #555;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="top">
+    <h1>Chileshe's Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hi, I’m <strong>Chileshe Besa</strong>, a driven and curious individual passionate about technology, artificial intelligence, and continuous learning. 
+      I am currently studying Chemical Engineering at Copperbelt University, and I enjoy using programming to solve real-world problems.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <article>
+        <h3>Python Game</h3>
+        <p>A simple and fun game built with Python, featuring Pygame for music and Tkinter for UI. It includes random number generation and vibration effects.</p>
+        <a href="https://github.com/your-github-repo" target="_blank">View on GitHub</a>
+      </article>
+
+      <article>
+        <h3>AI Model Training</h3>
+        <p>Trained a custom AI model using PyTorch to classify images with high accuracy.</p>
+        <a href="https://github.com/your-ai-repo" target="_blank">View on GitHub</a>
+      </article>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Have a project in mind or just want to say hi? Reach out below!</p>
+      <ul>
+        <li>Email: <a href="mailto:chilesheb129@gmail.com">chilesheb129@gmail.com</a></li>
+        <li>Phone: +260 776 112 222 / +260 766 623 223</li>
+      </ul>
+      
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email"><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea><br><br>
+
+        <input type="submit" value="Send">
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Chileshe Besa. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#top" id="back-to-top" title="Back to Top">Back to Top</a>
+
+  <script>
+    // Show "Back to Top" button when scrolling down
+    window.addEventListener("scroll", function() {
+      const backToTop = document.getElementById("back-to-top");
+      if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
