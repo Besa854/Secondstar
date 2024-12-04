@@ -27,9 +27,14 @@
     nav ul {
       list-style: none;
       padding: 0;
+      margin: 0;
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
     }
 
     nav ul li a {
@@ -38,20 +43,37 @@
       font-weight: bold;
     }
 
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
     /* Section Styling */
     section {
       padding: 20px;
-      background: rgba(255, 255, 255
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     section h2 {
       color: #ffd700; /* Gold color for headings */
+      text-align: center;
     }
 
     article {
       margin-bottom: 20px;
+    }
+
+    article h3 {
+      color: #333;
+    }
+
+    /* Audio Styling */
+    audio {
+      width: 100%;
+      margin: 10px 0;
     }
 
     /* Form Styling */
@@ -61,30 +83,33 @@
 
     form input, form textarea {
       width: 100%;
-      padding: 8px;
-      margin: 5px 0;
+      padding: 10px;
+      margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 14px;
     }
 
     form input[type="submit"] {
-      background: #333;
+      background: coral;
       color: white;
       border: none;
       padding: 10px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
 
     form input[type="submit"]:hover {
-      background: #555;
+      background: #ff7f50;
     }
 
     /* Back to Top Button Styling */
     #back-to-top {
       position: fixed;
       bottom: 20px;
-      right: 10px;
-      background-color: #333;
+      right: 20px;
+      background-color: coral;
       color: white;
       padding: 10px 15px;
       text-align: center;
@@ -96,7 +121,7 @@
     }
 
     #back-to-top:hover {
-      background-color: lightgrey;
+      background-color: #ff7f50;
     }
 
     /* Footer Styling */
@@ -132,14 +157,19 @@
     <!-- Projects Section -->
     <section id="projects">
       <h2>My Projects</h2>
-      <audio controls>
-  <source src = "https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type = "audio/mpeg">
-        your browser does not support the audio element.
-      </audio>
+
+      <article>
+        <h3>Featured Audio: Big World</h3>
+        <p>Listen to one of my favorite tracks:</p>
+        <audio controls>
+          <source src="https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </article>
 
       <article>
         <h3>Numstars Game</h3>
-        <p>A powerful morden and fun game built with C plus plus, featuring Pygame for music and Tkinter for UI. It includes random number generation and vibration effects.</p>
+        <p>A modern, fun game built with C++, featuring Pygame for music and Tkinter for UI. It includes random number generation and vibration effects.</p>
         <a href="https://github.com/your-github-repo" target="_blank">View on GitHub</a>
       </article>
 
@@ -161,13 +191,13 @@
       
       <form action="#" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+        <input type="text" id="name" name="name" placeholder="Your Name">
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email"><br><br>
+        <input type="email" id="email" name="email" placeholder="Your Email">
 
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
 
         <input type="submit" value="Send">
       </form>
@@ -194,4 +224,4 @@
     });
   </script>
 </body>
-</html>
+      </html>
