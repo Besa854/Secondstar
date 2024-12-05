@@ -551,17 +551,18 @@
   // Handle Form Submission with success and error handling
   const form = document.querySelector("form");
   form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
-    const formData = new FormData(form);
-    fetch(form.action, {
+    const formData = new FormData(form); // Get form data
+
+    fetch(form.action, { // Send the data to Formspree
       method: 'POST',
       body: formData
     })
     .then(response => {
       if (response.ok) {
         alert("Thank you! Your message has been sent.");
-        form.reset(); // Optional: Reset form after submission
+        form.reset(); // Reset the form after successful submission
       } else {
         alert("Oops! Something went wrong. Please try again.");
       }
@@ -572,4 +573,4 @@
   });
 </script>
 </body>
-  </html>
+    </html>
