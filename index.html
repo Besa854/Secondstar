@@ -201,21 +201,15 @@
       <article>
         <h3>Featured Audio: Big World</h3>
         <p>Listen to one of my favorite tracks:</p>
-        <audio controls>
-          <source src="https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        <div class="audio-container">
-  <button class="custom-play-button" onclick="togglePlay()">Play/Pause</button>
-  <button class="custom-download-button" onclick="downloadAudio()">Download</button>
-  <audio id="audio" controls>
-    <source src="path/to/audio/file.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-        </div>
-        </audio>
+            <div class="audio-container">
+          <button class="custom-play-button" onclick="togglePlay()">Play/Pause</button>
+          <button class="custom-download-button" onclick="downloadAudio()">Download</button>
+          <audio id="audio" controls>
+            <source src="https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div> 
       </article>
-
-      <article>
         <h3>Numstars Game</h3>
         <p>A modern, fun game built with C++, featuring Pygame for music and Tkinter for UI. It includes random number generation and vibration effects.</p>
         <a href="https://github.com/your-github-repo" target="_blank">View on GitHub</a>
@@ -260,15 +254,15 @@
   <!-- Back to Top Button -->
   <a href="#top" id="back-to-top" title="Back to Top">Back to Top</a>
 
-  <script>
+    <script>
     function downloadAudio() {
-  const audio = document.getElementById('audio');
-  const link = document.createElement('a');
-  link.href = audio.querySelector('source').src;  // Get the audio file source
-  link.download = 'audio-file.mp3';  // Name for the downloaded file
-  link.click();  // Trigger the download
+      const audio = document.getElementById('audio');
+      const link = document.createElement('a');
+      link.href = audio.querySelector('source').src;  // Get the audio file source
+      link.download = 'Big-World-Track.mp3';  // Name for the downloaded file
+      link.click();  // Trigger the download
     }
-    // Show "Back to Top" button when scrolling down
+// Show "Back to Top" button when scrolling down
     window.addEventListener("scroll", function() {
       const backToTop = document.getElementById("back-to-top");
       if (window.scrollY > 300) {
@@ -279,4 +273,4 @@
     });
   </script>
 </body>
-      </html>
+</html>
