@@ -74,12 +74,15 @@
     }
 
     audio {
-    width: 100%;
-    max-width: 600px;  /* Set max width to control player size */
-    margin: 10px 0;   /* Add margin around the audio player */
-    border: 2px solid #ffd700;  /* Add a border color */
-    border-radius: 8px;  /* Round the corners */
-    background-color: #000;  /* Background color for the audio player */
+  display: block;  /* Makes sure the audio element takes up the full width */
+  width: 100%;
+  height: 50px;  /* Custom height */
+  background-color: transparent; /* No background */
+  border: none; /* Remove the default border */
+}
+
+audio::-webkit-media-controls {
+  display: none; /* Hides the default controls for Webkit-based browsers */
 }
 
     /* Form Styling */
