@@ -73,16 +73,28 @@
       color: #333;
     }
 
-    audio {
-  display: block;  /* Makes sure the audio element takes up the full width */
+    .audio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
   width: 100%;
-  height: 50px;  /* Custom height */
-  background-color: transparent; /* No background */
-  border: none; /* Remove the default border */
 }
 
-audio::-webkit-media-controls {
-  display: none; /* Hides the default controls for Webkit-based browsers */
+.custom-play-button {
+  width: 40px;
+  height: 40px;
+  background-color: #ffd700;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.custom-play-button:hover {
+  background-color: #ff7f50;
 }
 
     /* Form Styling */
