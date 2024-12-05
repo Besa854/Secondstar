@@ -159,6 +159,24 @@
       font-size: 14px;
       display: none; /* Hidden by default */
       z-index: 1000; /* Ensure it appears above other elements */
+
+      #home-button {
+      position: fixed;
+      bottom: 80px; /* Above the Back to Top button */
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#home-button:hover {
+  background-color: #45a049;
+      }
     }
 
     #back-to-top:hover {
@@ -258,23 +276,19 @@
 </section>
   </main>
 
-  <!-- Footer -->
+   <!-- Footer -->
   <footer>
     <p>© 2024 Chileshe Besa. All rights reserved.</p>
   </footer>
 
-  <!-- Back to Top Button -->
+ <!-- Back to Top Button -->
   <a href="#top" id="back-to-top" title="Back to Top">Back to Top</a>
 
-    <script>
-    function downloadAudio() {
-      const audio = document.getElementById('audio');
-      const link = document.createElement('a');
-      link.href = audio.querySelector('source').src;  // Get the audio file source
-      link.download = 'Big-World-Track.mp3';  // Name for the downloaded file
-      link.click();  // Trigger the download
-    }
-// Show "Back to Top" button when scrolling down
+  <!-- Home Button -->
+  <a href="#top" id="home-button" title="Home">Home</a>
+  
+  <script>
+    // Show "Back to Top" button when scrolling down
     window.addEventListener("scroll", function() {
       const backToTop = document.getElementById("back-to-top");
       if (window.scrollY > 300) {
@@ -286,3 +300,5 @@
   </script>
 </body>
 </html>
+
+  
