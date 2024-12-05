@@ -73,7 +73,7 @@
       color: #333;
     }
 
-    .audio-container {
+  audio-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +91,25 @@
   border: none;
   cursor: pointer;
   margin-right: 15px;
+}
+
+.custom-play-button:hover {
+  background-color: #ff7f50;
+}
+
+/* New Download Button Styling */
+.custom-download-button {
+  width: 40px;
+  height: 40px;
+  background-color: #4CAF50;  /* Green color */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.custom-download-button:hover {
+  background-color: #45a049;
 }
 
 .custom-play-button:hover {
@@ -185,6 +204,14 @@
         <audio controls>
           <source src="https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type="audio/mpeg">
           Your browser does not support the audio element.
+        <div class="audio-container">
+  <button class="custom-play-button" onclick="togglePlay()">Play/Pause</button>
+  <button class="custom-download-button" onclick="downloadAudio()">Download</button>
+  <audio id="audio" controls>
+    <source src="path/to/audio/file.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+        </div>
         </audio>
       </article>
 
@@ -234,6 +261,13 @@
   <a href="#top" id="back-to-top" title="Back to Top">Back to Top</a>
 
   <script>
+    function downloadAudio() {
+  const audio = document.getElementById('audio');
+  const link = document.createElement('a');
+  link.href = audio.querySelector('source').src;  // Get the audio file source
+  link.download = 'audio-file.mp3';  // Name for the downloaded file
+  link.click();  // Trigger the download
+    }
     // Show "Back to Top" button when scrolling down
     window.addEventListener("scroll", function() {
       const backToTop = document.getElementById("back-to-top");
