@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chileshe Besa | Portfolio</title>
   <style>
+    html {
+     scroll-behavior: smooth;
+     }
     /* General Body Styling */
     body {
       font-family: Arial, sans-serif;
@@ -23,47 +26,84 @@
       background-size: cover;
       background-position: center;
       padding: 15px 0;
-      color: white
+      color: white;
       text-align: center;
-    }
+      }
 
-    nav ul {
+      nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 20px;
-    }
+      position: relative;
+     }
 
-    nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
+     #menu-button {
+      position: absolute;
+      left: 0;
       font-weight: bold;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+     }
+ 
+     nav ul li {
+     display: inline;
+     }
+
+     nav ul li a {
+     color: white;
+     text-decoration: none;
+     font-weight: bold;
     }
 
+    /* Navigation links hover effect */
     nav ul li a:hover {
-      text-decoration: underline;
+    text-decoration: underline;
+    color: #ff7f50; /* Change color on hover */
     }
+ 
+  /* Menu button hover effect */
+     #menu-button:hover {
+     background-color: #ff7f50; /* Add color change */
+     color: white; /* Change text color */
+     transition: 0.3s; /* Smooth transition */
+     }
+
+ /* Dropdown menu item hover effect */
+   #dropdown-menu li a:hover {
+     background-color: #ffd700; /* Add      background color on hover */
+     color: #333; /* Change text color */
+}
 
     /* Section Styling */
-    section {
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+  section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+   /* Set initial state for fade-in effect */
+   opacity: 0;
+   transform: translateY(50px); /* Start from below */
+   transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
 
-    section h2 {
-      color: #ffd700; /* Gold color for headings */
-      text-align: center;
-    }
+/* When section is visible on scroll */
+  section.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to its original position */
+  }
+
+  section h2 {
+    color: #ffd700; /* Gold color for headings */
+    text-align: center;
+}
 
     article {
       margin-bottom: 20px;
@@ -73,49 +113,77 @@
       color: #333;
     }
 
-  audio-container {
-  display: flex;
+    .audio-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      padding: 15px;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .custom-play-button {
+      width: 40px;
+      height: 40px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+
+    .custom-play-button:hover {
+      background-color: #ff7f50;
+    }
+
+    /* New Download Button Styling */
+    .custom-download-button {
+      width: 40px;
+      height: 40px;
+      background-color: #4CAF50;  /* Green color */
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+    /* Modal Popup Styling */
+#win-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+}
+
+#win-message {
+  background: white;
   padding: 20px;
-  border-radius: 15px;
-  width: 100%;
+  border-radius: 8px;
+  font-size: 18px;
+  color: green;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.custom-play-button {
-  width: 40px;
-  height: 40px;
-  background-color: #ffd700;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  margin-right: 15px;
+/* Animation for modal */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-.custom-play-button:hover {
-  background-color: #ff7f50;
+#win-modal.animate {
+  display: flex; /* When game is won, display the modal */
 }
 
-/* New Download Button Styling */
- custom-download-button {
-  width: 40px;
-  height: 40px;
-  background-color: blue;  
-  border-radius: 70%;
-  border: none;
-  background-position: center;
-  cursor: pointer;
-  margin-left: 25px;
-}
-
-.custom-download-button:hover {
-  background-color: #45a049;
-}
-
-.custom-play-button:hover {
-  background-color: #ff7f50;
-}
+    .custom-download-button:hover {
+      background-color: #45a049;
+    }
 
     /* Form Styling */
     form label {
@@ -130,6 +198,52 @@
       border-radius: 5px;
       font-size: 14px;
     }
+    /* Dropdown Menu Styling */
+   #dropdown-menu {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     background-color: #333;
+     color: white;
+     border-radius: 5px;
+     position: absolute;
+     z-index: 1000;
+     width: 150px; /* Adjust menu width as    needed */
+}
+
+    #dropdown-menu li {
+     padding: 10px;
+     border-bottom: 1px solid #444; /* O   ptional divider */
+  }
+
+   #dropdown-menu li:last-child {
+    border-bottom: none; /* Remove last item border */
+  }
+
+   #dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
+    #dropdown-menu li a:hover {
+    background-color: #555;
+}
+
+/* Style the Menu Button */
+    #menu-button {
+    background-color: #ffd700; /* Gold */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    }
+
+   #menu-button:hover {
+    background-color: #ff7f50; /* Coral */
+   }
 
     form input[type="submit"] {
       background: coral;
@@ -159,10 +273,51 @@
       font-size: 14px;
       display: none; /* Hidden by default */
       z-index: 1000; /* Ensure it appears above other elements */
+      #game {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
-    home-button {
+  #game input {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#game button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+  #game button:hover {
+  background-color: #45a049;
+}
+
+  #message {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+  #attempts {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6347;
+}
+    }
+      #home-button {
       position: fixed;
-      bottom: 80px; /* Above the Back to Top button */
+      bottom: 80px; /* Above the Back to Top      button */
       right: 20px;
       background-color: #4CAF50;
       color: white;
@@ -176,8 +331,7 @@
 
 #home-button:hover {
   background-color: #45a049;
-      }
-    }
+}
 
     #back-to-top:hover {
       background-color: #ff7f50;
@@ -194,16 +348,29 @@
 </head>
 <body>
   <!-- Header -->
-  <header id="top">
-    <h1>Chileshe's Portfolio</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header id="top">
+  <h1>Chileshe's Portfolio</h1>
+  <nav>
+    <ul>
+      <li>
+        <!-- Menu Button -->
+        <button id="menu-button">Menu</button>
+      </li>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- Dropdown Menu -->
+    <ul id="dropdown-menu" style="display: none;">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#newsletter">Newsletter Signup</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- Main Content -->
   <main>
@@ -212,6 +379,21 @@
       <h2>About Me</h2>
       <p>Hi, I’m <strong>Chileshe Besa</strong>, a driven and curious individual passionate about technology, artificial intelligence, and continuous learning.</p>
     </section>
+    <section id="game">
+  <h2>Number Guessing Game</h2>
+  <p>Guess a number between 1 and 100:</p>
+  
+  <input type="number" id="guess" placeholder="Enter a number" />
+  <button id="submit-guess">Submit Guess</button>
+  
+  <p id="message"></p>
+  <p>Number of attempts: <span id="attempts">0</span></p>
+  <!-- Modal for Game Win -->
+<div id="win-modal">
+  <div id="win-message"></div>
+</div>
+  
+</section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -220,15 +402,17 @@
       <article>
         <h3>Featured Audio: Big World</h3>
         <p>Listen to one of my favorite tracks:</p>
-            <div class="audio-container">
+        <div class="audio-container">
           <button class="custom-play-button" onclick="togglePlay()">Play/Pause</button>
           <button class="custom-download-button" onclick="downloadAudio()">Download</button>
           <audio id="audio" controls>
             <source src="https://github.com/Besa854/Secondstar/raw/refs/heads/main/Big%20World%20(160k).mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
-        </div> 
+        </div>
       </article>
+
+      <article>
         <h3>Numstars Game</h3>
         <p>A modern, fun game built with C++, featuring Pygame for music and Tkinter for UI. It includes random number generation and vibration effects.</p>
         <a href="https://github.com/your-github-repo" target="_blank">View on GitHub</a>
@@ -244,39 +428,33 @@
     <!-- Contact Section -->
 <section id="contact">
   <h2>Contact Me</h2>
-  <p>Have a project in mind or just want to say hi? Reach out below!</p>
-  <ul>
-    <li>Email: <a href="mailto:chilesheb129@gmail.com">chilesheb129@gmail.com</a></li>
-    <li>Phone: +260 776 112 222 / +260 766 623 223</li>
-  </ul>
-  
-  <form action="#" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" placeholder="Your Name">
+  <form action="https://formspree.io/f/mqakjeqe" method="POST">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Your Email">
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" required></textarea>
 
-    <input type="submit" value="Send">
+    <button type="submit">Send Message</button>
   </form>
 </section>
 
 <!-- Newsletter Signup Section -->
 <section id="newsletter">
-  <h2>Sign Up for My Newsletter</h2>
-  <p>Stay updated with my latest projects, blog posts, and more!</p>
-  <form action="#" method="post">
-    <label for="newsletter-email">Email Address:</label>
-    <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your Email" required>
-    <input type="submit" value="Sign Up">
+  <h2>Subscribe to Newsletter</h2>
+  <form action="https://formspree.io/f/mqakjeqe" method="POST">
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+    <button type="submit">Subscribe</button>
   </form>
 </section>
   </main>
 
-   <!-- Footer -->
+  <!-- Footer -->
   <footer>
     <p>© 2024 Chileshe Besa. All rights reserved.</p>
   </footer>
@@ -287,18 +465,111 @@
   <!-- Home Button -->
   <a href="#top" id="home-button" title="Home">Home</a>
   
-  <script>
-    // Show "Back to Top" button when scrolling down
-    window.addEventListener("scroll", function() {
-      const backToTop = document.getElementById("back-to-top");
-      if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
+<script>
+  // Show "Back to Top" button when scrolling down
+  window.addEventListener("scroll", function() {
+    const backToTop = document.getElementById("back-to-top");
+    if (window.scrollY > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+
+    // Fade-in effect on scroll for sections
+    const sections = document.querySelectorAll('section'); // Select all sections
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top < window.innerHeight) {
+        section.classList.add('visible'); // Add the 'visible' class when the section is in view
       }
     });
-  </script>
-</body>
-</html>
+  });
 
+  // Menu button functionality
+  document.getElementById("menu-button").addEventListener("click", function() {
+    const dropdown = document.getElementById("dropdown-menu");
+    if (dropdown.style.display === "none" || dropdown.style.display === "") {
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  });
+
+  // Number Guessing Game logic
+  let attempts = 0;
+  let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a random number between 1 and 100
+
+  // Add sound effect when user wins
+  const winSound = new Audio("https://www.soundjay.com/button/beep-07.wav"); // Link to a beep sound (you can replace with your own)
   
+  // Add pop-up modal to show message when user wins
+  const winModal = document.getElementById("win-modal");
+  const modalMessage = document.getElementById("win-message");
+
+  document.getElementById("submit-guess").addEventListener("click", function() {
+    const guess = parseInt(document.getElementById("guess").value);
+    const message = document.getElementById("message");
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      message.textContent = "Please enter a number between 1 and 100!";
+      message.style.color = "red";
+      return;
+    }
+
+    attempts++;
+    document.getElementById("attempts").textContent = attempts;
+
+    if (guess === randomNumber) {
+      message.textContent = `Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.`;
+      message.style.color = "green";
+
+      // Play sound on win
+      winSound.play();
+
+      // Show the win modal with a message
+      modalMessage.textContent = `You won the game in ${attempts} attempts! The number was ${randomNumber}.`;
+      winModal.style.display = "block"; // Display the modal
+      winModal.classList.add("animate"); // Add animation class for popup effect
+    } else if (guess < randomNumber) {
+      message.textContent = "Too low! Try again.";
+      message.style.color = "orange";
+    } else {
+      message.textContent = "Too high! Try again.";
+      message.style.color = "orange";
+    }
+
+    document.getElementById("guess").value = ""; // Clear the input after each guess
+    document.getElementById("guess").focus(); // Focus back on the input for the next guess
+  });
+
+  // Close the modal when the user clicks anywhere outside the modal
+  window.onclick = function(event) {
+    if (event.target === winModal) {
+      winModal.style.display = "none";
+    }
+  };
+
+  // Handle Form Submission with success and error handling
+  const form = document.querySelector("form");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Thank you! Your message has been sent.");
+        form.reset(); // Optional: Reset form after submission
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    })
+    .catch(error => {
+      alert("Error: " + error);
+    });
+  });
+</script>
+</body>
+  </html>
