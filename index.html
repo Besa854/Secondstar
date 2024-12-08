@@ -358,6 +358,7 @@
       </li>
       <li><a href="#top">Home</a></li>
       <li><a href="#about">About Me</a></li>
+      <li><a herf="#weather">Weather</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -366,6 +367,7 @@
       <li><a href="#top">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a herf="weather">Weather</a><li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#newsletter">Newsletter Signup</a></li>
     </ul>
@@ -422,6 +424,8 @@
         <h3>AI Model Training</h3>
         <p>Trained a custom AI model using PyTorch to classify images with high accuracy.</p>
         <a href="https://github.com/your-ai-repo" target="_blank">View on GitHub</a>
+        <p> Check your city weather🥹 </p>
+                <a href="https://besa854.github.io/Weather-/" target="_blank">Check Weather</a>
       </article>
     </section>
 
@@ -492,6 +496,13 @@
     } else {
       dropdown.style.display = "none";
     }
+  });
+   // Redirect to external weather application on "Weather" menu item click
+  document.querySelectorAll('a[href="#weather"]').forEach(weatherLink => {
+    weatherLink.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      window.location.href = "https://besa854.github.io/Weather-/"; // Replace with your weather app URL
+    });
   });
 
   // Number Guessing Game logic
